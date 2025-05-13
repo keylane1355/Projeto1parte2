@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ktrass</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background-image: url('imagemDeFundo.jpg'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+    body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); 
+  z-index: -1;
+}
+
+
+  
+
+    /* Header */
+    .header {
+      background-size: cover; 
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 200px; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    /* Top navigation */
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    h1 {
+      color: blueviolet;
+      text-align: center;
+    }
+
+    h2 {
+      color: #444;
+      padding-top: 20px;
+    }
+
+    p {
+      font-size: 20px;
+      padding: 0 15px;
+      line-height: 1.6;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu de navegação -->
+  <div class="topnav">
+    <a href="#sobre">Sobre</a>
+    <a href="Produtos.html">Produtos</a>
+    <a href="Contato.html">Contato</a>
+    <a href="Frete.html">Frete</a>
+  </div>
+
+  <!-- Cabeçalho -->
+  <div class="header">
+    <img src="logoLoja.png" alt="Logo Loja" style="max-height: 100px;">
+    <h1>Bem-vinda à Ktrass</h1>
+  </div>
+
+  <hr/>
+
+  <h2 id="sobre">Sobre nossa história</h2>
+  <p>Tudo começou com um sonho de infância. Ana sempre amou moda e acreditava que cada mulher merecia se sentir linda, confiante e única.</p>
+  <p>Em 2018, com coragem no coração e muita dedicação, ela abriu as portas da <strong>Essência Feminina</strong>, uma loja pensada para valorizar todos os estilos e corpos.</p>
+  <p>O espaço, acolhedor e cheio de charme, logo se tornou referência no bairro. Mais do que roupas, Ana oferecia atenção, carinho e uma experiência especial para cada cliente.</p>
+  <p>A loja cresceu, conquistou presença online, mas manteve sua essência: vestir mulheres reais com amor e autenticidade.</p>
+  <p>Hoje, a Essência Feminina é mais do que uma loja — é um movimento de autoestima, beleza e empoderamento.</p>
+
+</body>
+</html>
