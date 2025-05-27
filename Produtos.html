@@ -4,81 +4,33 @@
   <meta charset="UTF-8">
   <title>Produtos - Ktrass</title>
   
-  <!-- Adicionando Bootstrap -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-    }
+  <!-- Estilo externo -->
+  <link rel="stylesheet" href="estilo.css">
 
-    .header {
-      background-color: #1e1e1e;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
+  <!-- Bootstrap Icons -->
+   <div class="sacola-icon" fill="pink">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   </div>
+ 
 
-    .produtos-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
+  <!-- Ícone da sacola SVG branco -->
+<!-- <div class="sacola-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-bag" viewBox="0 0 16 16">
+    <path d="M8 1a2 2 0 0 1 2 2v1h1.5A1.5 1.5 0 0 1 13 5.5v8A1.5 1.5 0 0 1 11.5 15h-7A1.5 1.5 0 0 1 3 13.5v-8A1.5 1.5 0 0 1 4.5 4H6V3a2 2 0 0 1 2-2zm3 3H5V3a3 3 0 0 1 6 0v1z"/>
+  </svg>
+</div> -->
 
-    .produto {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-
-    .produto:hover {
-      transform: translateY(-5px);
-    }
-
-    .produto img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-
-    .produto-info {
-      padding: 20px;
-    }
-
-    .produto-info h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #444;
-    }
-
-    .produto-info p {
-      color: #777;
-      font-size: 16px;
-    }
-
-    .preco {
-      font-weight: bold;
-      font-size: 18px;
-      color: #8a2be2;
-      margin-top: 10px;
-    }
-
-    .filtros {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 40px;
-    }
-  </style>
 </head>
+
 <body>
+
+  <!-- Ícone da sacola -->
+  <div class="sacola-icon">
+    <i class="bi bi-bag" style="font-size: 32px;"></i>
+  </div>
 
   <div class="header">
     <h1>Nossos Produtos</h1>
@@ -87,14 +39,14 @@
 
   <!-- Filtros -->
   <div class="filtros">
-    <select class="form-select form-select-lg mb-3" aria-label="Filtro de tamanho">
+    <select class="form-select form-select-lg mb-3">
       <option selected>Filtrar por tamanho</option>
       <option value="P">P</option>
       <option value="M">M</option>
       <option value="G">G</option>
     </select>
 
-    <select class="form-select form-select-sm" aria-label="Filtro de cor">
+    <select class="form-select form-select-sm">
       <option selected>Filtrar por cor</option>
       <option value="preto">Preto</option>
       <option value="branco">Branco</option>
@@ -104,65 +56,164 @@
 
   <!-- Produtos -->
   <div class="produtos-container">
-    <div class="produto" style="width: 300px;">
-      <img src="https://loja.donnamodelli.com.br/resources/img/looks-com-blazer-feminino-com-recorte-lapela-preto-look.jpg" alt="Produto 1" >
+    <!-- Produto 1 -->
+    <div class="produto">
+      <img src="https://loja.donnamodelli.com.br/resources/img/looks-com-blazer-feminino-com-recorte-lapela-preto-look.jpg" alt="Produto 1">
       <div class="produto-info">
         <h2>Conjunto Blazer e Calça Social</h2>
         <p>Ideal para ocasiões especiais com muito charme.</p>
         <div class="preco">R$ 259,90</div>
+        <button class="btn btn-success btn-sm adicionar-sacola" data-nome="Conjunto Blazer e Calça Social" data-preco="259.90">Adicionar à sacola</button>
       </div>
     </div>
-    <!-- Outros produtos... -->
-    <div class="produto" style="width: 300px;">
-      <img src="https://th.bing.com/th/id/OIP.T6-zt9vj_1SA5i9ADDPm9QHaLH?rs=1&pid=ImgDetMain" alt="Produto 1" >
+
+    <!-- Produto 2 -->
+    <div class="produto">
+      <img src="https://th.bing.com/th/id/OIP.T6-zt9vj_1SA5i9ADDPm9QHaLH?rs=1&pid=ImgDetMain" alt="Produto 2">
       <div class="produto-info">
         <h2>Vestido Elegante</h2>
         <p>Ideal para ocasiões especiais com muito charme.</p>
         <div class="preco">R$ 219,90</div>
+        <button class="btn btn-success btn-sm adicionar-sacola" data-nome="Vestido Elegante" data-preco="219.90">Adicionar à sacola</button>
       </div>
     </div>
 
-    <div class="produto" style="width: 300px;">
-      <img src="https://imgmarketplace.lojasrenner.com.br/20001/3071/7010701142198/7510702024781/0.jpeg" alt="Produto 1" >
+    <!-- Produto 3 -->
+    <div class="produto">
+      <img src="https://imgmarketplace.lojasrenner.com.br/20001/3071/7010701142198/7510702024781/0.jpeg" alt="Produto 3">
       <div class="produto-info">
         <h2>Saia Elegante</h2>
         <p>Ideal para ocasiões especiais com muito charme.</p>
         <div class="preco">R$ 89,90</div>
+        <button class="btn btn-success btn-sm adicionar-sacola" data-nome="Saia Elegante" data-preco="89.90">Adicionar à sacola</button>
       </div>
     </div>
-
   </div>
-<!-- 
-  pagina de baixo -->
+
   <div class="produtos-container">
-    <div class="produto" style="width: 300px;">
-      <img src="https://th.bing.com/th/id/OIP.mpqxmpahAParValHeLCk3QHaLF?rs=1&pid=ImgDetMain" alt="Produto 1" >
+    <!-- Produto 4 -->
+    <div class="produto">
+      <img src="https://th.bing.com/th/id/OIP.mpqxmpahAParValHeLCk3QHaLF?rs=1&pid=ImgDetMain" alt="Produto 4">
       <div class="produto-info">
         <h2>Camisa Social</h2>
         <p>Ideal para ocasiões especiais com muito charme.</p>
         <div class="preco">R$ 119,90</div>
+        <button class="btn btn-success btn-sm adicionar-sacola" data-nome="Camisa Social" data-preco="119.90">Adicionar à sacola</button>
       </div>
     </div>
-    
-    <div class="produto" style="width: 300px;">
-      <img src="https://loja.madameshop.com.br/wp-content/uploads/2023/09/blusa-social-feminina-2.webp" alt="Produto 1" >
+
+    <!-- Produto 5 -->
+    <div class="produto">
+      <img src="https://loja.madameshop.com.br/wp-content/uploads/2023/09/blusa-social-feminina-2.webp" alt="Produto 5">
       <div class="produto-info">
         <h2>Camisa Social elegante</h2>
         <p>Ideal para ocasiões especiais com muito charme.</p>
         <div class="preco">R$ 139,90</div>
+        <button class="btn btn-success btn-sm adicionar-sacola" data-nome="Camisa Social elegante" data-preco="139.90">Adicionar à sacola</button>
       </div>
     </div>
 
-    <div class="produto" style="width: 300px;">
-      <img src="https://th.bing.com/th/id/OIP.HJ7C6jU6eUOpPbJzHHLhiwHaJQ?rs=1&pid=ImgDetMain" alt="Produto 1" >
+    <!-- Produto 6 -->
+    <div class="produto">
+      <img src="https://th.bing.com/th/id/OIP.HJ7C6jU6eUOpPbJzHHLhiwHaJQ?rs=1&pid=ImgDetMain" alt="Produto 6">
       <div class="produto-info">
         <h2>Jaqueta Feminina</h2>
         <p>Ideal para ocasiões especiais com muito charme.</p>
         <div class="preco">R$ 319,90</div>
+        <button class="btn btn-success btn-sm adicionar-sacola" data-nome="Jaqueta Feminina" data-preco="319.90">Adicionar à sacola</button>
       </div>
     </div>
-
   </div>
+
+  <!-- Sacola de Compras -->
+  <div id="sacola" class="card">
+    <div class="card-header">
+      <h5>Sacola</h5>
+    </div>
+    <ul id="sacola-itens" class="list-group list-group-flush"></ul>
+    <div class="card-body">
+      <p><strong>Subtotal:</strong> R$ <span id="subtotal">0.00</span></p>
+      <div class="d-flex gap-2">
+        <button class="btn btn-secondary btn-sm">Continuar Comprando</button>
+        <button class="btn btn-primary btn-sm">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const sacolaIcon = document.querySelector('.sacola-icon');
+    const sacolaDiv = document.getElementById('sacola');
+    const sacolaItens = document.getElementById('sacola-itens');
+    const subtotalEl = document.getElementById('subtotal');
+    let sacola = [];
+
+    sacolaIcon.addEventListener('click', () => {
+      sacolaDiv.classList.toggle('ativa');
+    });
+
+    function atualizarSacola() {
+      sacolaItens.innerHTML = '';
+      let subtotal = 0;
+
+      sacola.forEach((item, index) => {
+        subtotal += item.preco * item.quantidade;
+
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+        li.innerHTML = `
+          <div>
+            ${item.nome} <br>
+            <small>Qtd: ${item.quantidade}</small>
+          </div>
+          <div>
+            <button class="btn btn-sm btn-secondary me-1" onclick="adicionarMais(${index})">+</button>
+            <button class="btn btn-sm btn-warning me-1" onclick="removerUm(${index})">-</button>
+            <button class="btn btn-sm btn-danger" onclick="removerItem(${index})">x</button>
+          </div>
+        `;
+        sacolaItens.appendChild(li);
+      });
+
+      subtotalEl.textContent = subtotal.toFixed(2);
+    }
+
+    function adicionarMais(index) {
+      sacola[index].quantidade++;
+      atualizarSacola();
+    }
+
+    function removerUm(index) {
+      if (sacola[index].quantidade > 1) {
+        sacola[index].quantidade--;
+      } else {
+        sacola.splice(index, 1);
+      }
+      atualizarSacola();
+    }
+
+    function removerItem(index) {
+      sacola.splice(index, 1);
+      atualizarSacola();
+    }
+
+    document.querySelectorAll('.adicionar-sacola').forEach(botao => {
+      botao.addEventListener('click', function() {
+        const nome = this.dataset.nome;
+        const preco = parseFloat(this.dataset.preco);
+
+        const existente = sacola.find(item => item.nome === nome);
+
+        if (existente) {
+          existente.quantidade++;
+        } else {
+          sacola.push({ nome, preco, quantidade: 1 });
+        }
+
+        atualizarSacola();
+      });
+    });
+  </script>
 
 </body>
 </html>
