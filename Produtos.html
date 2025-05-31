@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Produtos - Ktrass</title>
-  
+
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -11,24 +11,28 @@
   <link rel="stylesheet" href="estilo.css">
 
   <!-- Bootstrap Icons -->
-   <div class="sacola-icon" fill="pink">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-   </div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
  
+      display: none;
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      width: 300px;
+      z-index: 9999;
+    }
 
-  <!-- Ícone da sacola SVG branco -->
-<!-- <div class="sacola-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-bag" viewBox="0 0 16 16">
-    <path d="M8 1a2 2 0 0 1 2 2v1h1.5A1.5 1.5 0 0 1 13 5.5v8A1.5 1.5 0 0 1 11.5 15h-7A1.5 1.5 0 0 1 3 13.5v-8A1.5 1.5 0 0 1 4.5 4H6V3a2 2 0 0 1 2-2zm3 3H5V3a3 3 0 0 1 6 0v1z"/>
-  </svg>
-</div> -->
-
+    #sacola.ativa {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- Ícone da sacola -->
-  <div class="sacola-icon">
+  <div class="sacola-icon" style="cursor: pointer;">
     <i class="bi bi-bag" style="font-size: 32px;"></i>
   </div>
 
@@ -140,80 +144,106 @@
     </div>
   </div>
 
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script>
-    const sacolaIcon = document.querySelector('.sacola-icon');
-    const sacolaDiv = document.getElementById('sacola');
-    const sacolaItens = document.getElementById('sacola-itens');
-    const subtotalEl = document.getElementById('subtotal');
-    let sacola = [];
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
-    sacolaIcon.addEventListener('click', () => {
-      sacolaDiv.classList.toggle('ativa');
-    });
+  <!-- Script da Sacola -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sacolaIcon = document.querySelector('.sacola-icon');
+      const sacolaDiv = document.getElementById('sacola');
+      const sacolaItens = document.getElementById('sacola-itens');
+      const subtotalEl = document.getElementById('subtotal');
+      let sacola = [];
 
-    function atualizarSacola() {
-      sacolaItens.innerHTML = '';
-      let subtotal = 0;
-
-      sacola.forEach((item, index) => {
-        subtotal += item.preco * item.quantidade;
-
-        const li = document.createElement('li');
-        li.className = 'list-group-item d-flex justify-content-between align-items-center';
-
-        li.innerHTML = `
-          <div>
-            ${item.nome} <br>
-            <small>Qtd: ${item.quantidade}</small>
-          </div>
-          <div>
-            <button class="btn btn-sm btn-secondary me-1" onclick="adicionarMais(${index})">+</button>
-            <button class="btn btn-sm btn-warning me-1" onclick="removerUm(${index})">-</button>
-            <button class="btn btn-sm btn-danger" onclick="removerItem(${index})">x</button>
-          </div>
-        `;
-        sacolaItens.appendChild(li);
+      sacolaIcon.addEventListener('click', () => {
+        sacolaDiv.classList.toggle('ativa');
       });
 
-      subtotalEl.textContent = subtotal.toFixed(2);
-    }
+      function atualizarSacola() {
+        sacolaItens.innerHTML = '';
+        let subtotal = 0;
 
-    function adicionarMais(index) {
-      sacola[index].quantidade++;
-      atualizarSacola();
-    }
+        sacola.forEach((item, index) => {
+          subtotal += item.preco * item.quantidade;
 
-    function removerUm(index) {
-      if (sacola[index].quantidade > 1) {
-        sacola[index].quantidade--;
-      } else {
-        sacola.splice(index, 1);
+          const li = document.createElement('li');
+          li.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+          li.innerHTML = `
+            <div>
+              ${item.nome} <br>
+              <small>Qtd: ${item.quantidade}</small>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-secondary me-1" onclick="adicionarMais(${index})">+</button>
+              <button class="btn btn-sm btn-warning me-1" onclick="removerUm(${index})">-</button>
+              <button class="btn btn-sm btn-danger" onclick="removerItem(${index})">x</button>
+            </div>
+          `;
+          sacolaItens.appendChild(li);
+        });
+
+        subtotalEl.textContent = subtotal.toFixed(2);
       }
-      atualizarSacola();
-    }
 
-    function removerItem(index) {
-      sacola.splice(index, 1);
-      atualizarSacola();
-    }
-
-    document.querySelectorAll('.adicionar-sacola').forEach(botao => {
-      botao.addEventListener('click', function() {
-        const nome = this.dataset.nome;
-        const preco = parseFloat(this.dataset.preco);
-
-        const existente = sacola.find(item => item.nome === nome);
-
-        if (existente) {
-          existente.quantidade++;
-        } else {
-          sacola.push({ nome, preco, quantidade: 1 });
-        }
-
+      window.adicionarMais = function(index) {
+        sacola[index].quantidade++;
         atualizarSacola();
+      }
+
+      window.removerUm = function(index) {
+        if (sacola[index].quantidade > 1) {
+          sacola[index].quantidade--;
+        } else {
+          sacola.splice(index, 1);
+        }
+        atualizarSacola();
+      }
+
+      window.removerItem = function(index) {
+        sacola.splice(index, 1);
+        atualizarSacola();
+      }
+
+      document.querySelectorAll('.adicionar-sacola').forEach(botao => {
+        botao.addEventListener('click', function() {
+          const nome = this.dataset.nome;
+          const preco = parseFloat(this.dataset.preco);
+
+          const existente = sacola.find(item => item.nome === nome);
+
+          if (existente) {
+            existente.quantidade++;
+          } else {
+            sacola.push({ nome, preco, quantidade: 1 });
+          }
+
+          atualizarSacola();
+        });
       });
     });
   </script>
+  <!-- VLibras Plugin -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
 
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
 </body>
 </html>
