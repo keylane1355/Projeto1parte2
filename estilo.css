@@ -1,12 +1,42 @@
+.header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #39525C;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f9f9f9;
-    color: #333;
+    color: #39525C;
   }
-
   .header {
-    background-color: #dc95a2;
+    background-color: #F2D2C6;
     color: white;
     text-align: center;
     padding: 60px 20px;

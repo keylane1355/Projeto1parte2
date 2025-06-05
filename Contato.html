@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contato</title>
 </head>
 <body>
     
@@ -15,8 +15,44 @@
   <title>Contato</title>
   <style>
 
+
+
+.header {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #39525C;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    
+
 body {
-  background-image: url('logoLoja.png'); 
+  background-image: url('fundo.jpg'); 
   background-size: cover; /* Faz a imagem cobrir toda a tela */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Evita repetição */
@@ -83,6 +119,28 @@ body {
   </style>
 </head>
 <body>
+
+    <!-- Menu de navegação -->
+    <div class="topnav">
+      <a href="Produtos.html" target="_blank">Produtos</a>
+      <a href="#sobre" target="_blank">Sobre</a>
+      <a href="Contato.html" target="_blank">Contato</a>
+      <a href="Frete.html" target="_blank">Frete</a>
+    </div>
+
+
+
+ <!-- VLibras -->
+ <div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
 
   <div class="container">
     <div class="form-box">
