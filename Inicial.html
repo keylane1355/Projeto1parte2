@@ -5,46 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ktrass</title>
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Meow+Script&family=Yellowtail&display=swap');
-
-
-    .meow-script-regular {
-      font-family: "Meow Script", cursive;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 30px;
-    }
-
-    .yellowtail-regular {
-      font-family: "Yellowtail", cursive;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 50px
-    }
-
-
     * {
       box-sizing: border-box;
-    }
-
-    html,
-    body {
-      height: 100%;
       margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      background-image: url('Fundo.jpg');
+      background-image: url('Fundo.jpg'); /* imagem de fundo */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       position: relative;
-      font-family: Arial, sans-serif;
       min-height: 100vh;
     }
 
+    /* Overlay escuro */
     body::before {
       content: '';
       position: fixed;
@@ -52,22 +39,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(0, 0, 0, 0.6); /* Fundo escurecido */
       z-index: -1;
-    }
-
-    /* Header */
-    .header {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 1px 1px 3px black;
     }
 
     .topnav {
@@ -89,83 +62,91 @@
       color: black;
     }
 
+    .header {
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+
     h1 {
-      color: rgb(255, 255, 255);
-      text-align: center;
-      font-size: 120px;
+      font-family: "Meow Script", cursive;
+      font-size: 50px;
+      margin-top: 10px;
     }
 
     h2 {
-      color: #ffffff;
-      padding-top: 20px;
-
+      font-family: "Yellowtail", cursive;
+      font-size: 40px;
+      color: white;
+      margin-top: 20px;
     }
 
     p {
-      font-size: 20px;
+      font-size: 30px;
       padding: 0 15px;
       line-height: 1.6;
       color: white;
+      font-family: "Meow Script", cursive;
     }
 
     hr {
       border: none;
       border-top: 1px solid #ccc;
-      margin: 20px 0;
+      margin: 20px 100px;
+    }
+
+    .conteudo {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 50px 100px;
     }
   </style>
 </head>
 
- <!-- VLibras -->
- <div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
-
-
 <body>
-  <!-- Menu de navegação -->
+
+  
   <div class="topnav">
-    <a href="Produtos.html" target="_blank">Produtos</a>
-    <a href="#sobre" target="_blank">Sobre</a>
+    <a href="Produtos.html" target="_blank">Home</a>
+    <a href="Inicial.html" target="_blank">Sobre</a>
     <a href="Contato.html" target="_blank">Contato</a>
     <a href="Frete.html" target="_blank">Frete</a>
   </div>
 
-  <div style="background-color: #00000063;
-color:white;
- padding-left: 50px;">
+  
+  <div class="header">
+    <img src="logoLoja.png" alt="Logo Loja" style="max-height: 100px; border-radius: 100px; border: 4px solid white;">
+    <h1>Bem-vinda à Ktrass</h1>
+  </div>
 
-    <!-- Cabeçalho -->
-    <div class="header">
-      <img src="logoLoja.png" alt="Logo Loja" style="max-height: 100px;border-radius: 100px;border: 4px solid white;">
-      <h1 class="meow-script-regular">Bem-vinda à Ktrass</h1>
-    </div>
+  <hr />
 
-    <hr />
-    <div style="margin: 0 100px">
+  
+  <div class="conteudo">
+    <h2>Sobre nossa história</h2>
+    <p>Tudo começou com um sonho de infância. Ana sempre amou moda e acreditava que cada mulher merecia se sentir linda, confiante e única.</p>
+    <p>Em 2018, com coragem no coração e muita dedicação, ela abriu as portas da <strong>Essência Feminina</strong>, uma loja pensada para valorizar todos os estilos e corpos.</p>
+    <p>O espaço, acolhedor e cheio de charme, logo se tornou referência no bairro. Mais do que roupas, Ana oferecia atenção, carinho e uma experiência especial para cada cliente.</p>
+    <p>A loja cresceu, conquistou presença online, mas manteve sua essência: vestir mulheres reais com amor e autenticidade.</p>
+    <p>Hoje, a Essência Feminina é mais do que uma loja — é um movimento de autoestima, beleza e empoderamento.</p>
+  </div>
 
-
-      <h2 class="yellowtail-regular">Sobre nossa história</h2>
-      <p class="meow-script-regular">Tudo começou com um sonho de infância. Ana sempre amou moda e acreditava que cada
-        mulher merecia se sentir linda, confiante e única.</p>
-      <p class="meow-script-regular">Em 2018, com coragem no coração e muita dedicação, ela abriu as portas da
-        <strong>Essência Feminina</strong>, uma loja pensada para valorizar todos os estilos e corpos.
-      </p>
-      <p class="meow-script-regular">O espaço, acolhedor e cheio de charme, logo se tornou referência no bairro. Mais do
-        que roupas, Ana oferecia atenção, carinho e uma experiência especial para cada cliente.</p>
-      <p class="meow-script-regular">A loja cresceu, conquistou presença online, mas manteve sua essência: vestir
-        mulheres reais com amor e autenticidade.</p>
-      <p class="meow-script-regular">Hoje, a Essência Feminina é mais do que uma loja — é um movimento de autoestima,
-        beleza e empoderamento.</p>
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
     </div>
   </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
 </body>
 
 </html>

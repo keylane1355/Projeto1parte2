@@ -1,33 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato</title>
-</head>
-<body>
-    
-    <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contato</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
 
-
-
-.header {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 1px 1px 3px black;
+    html, body {
+      height: 100%;
     }
 
     .topnav {
@@ -49,48 +36,54 @@
       color: black;
     }
 
-    
-
-body {
-  background-image: url('fundo.jpg'); 
-  background-size: cover; /* Faz a imagem cobrir toda a tela */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita repetição */
-}
-
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+    /* Fundo com overlay escuro */
+    .fundo {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-image: url('fundo.jpg'); /* Altere para sua imagem */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    body, html {
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100%;
-      background-color: #f0f0f5;
+      background-color: rgba(0, 0, 0, 0.6); /* Mais escuro para suavizar imagem */
+      z-index: 0;
     }
 
-    .container {
+    .conteudo {
+      position: relative;
+      z-index: 1;
+      color: white;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100%;
+      padding: 50px;
+      text-align: center;
+      flex-direction: column;
     }
 
     .form-box {
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.1); /* leve transparência */
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
     }
 
     .form-box h2 {
-      text-align: center;
       margin-bottom: 20px;
-      color: #4B0082; /* roxo escuro */
+      font-size: 28px;
+      font-family: 'Georgia', serif;
+      color: white;
     }
 
     .form-box input,
@@ -98,7 +91,7 @@ body {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
-      border: 1px solid #ccc;
+      border: none;
       border-radius: 10px;
     }
 
@@ -118,45 +111,42 @@ body {
     }
   </style>
 </head>
+
 <body>
-
-    <!-- Menu de navegação -->
-    <div class="topnav">
-      <a href="Produtos.html" target="_blank">Produtos</a>
-      <a href="#sobre" target="_blank">Sobre</a>
-      <a href="Contato.html" target="_blank">Contato</a>
-      <a href="Frete.html" target="_blank">Frete</a>
-    </div>
-
-
-
- <!-- VLibras -->
- <div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
+  
+  <div class="topnav">
+    <a href="Produtos.html" target="_blank">Home</a>
+    <a href="Inicial.html" target="_blank">Sobre</a>
+    <a href="Contato.html" target="_blank">Contato</a>
+    <a href="Frete.html" target="_blank">Frete</a>
   </div>
-</div>
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
 
-  <div class="container">
-    <div class="form-box">
-      <h2>Entre em Contato</h2>
-        <input type="text" name="name" placeholder="Seu nome" required>
-        <input type="email" name="email" placeholder="Seu email" required>
+
+  <div class="fundo">
+    <div class="overlay"></div>
+
+    <div class="conteudo">
+      <div class="form-box">
+        <h2>Entre em Contato</h2>
+        <input type="text" name="name" placeholder="Seu nome" required />
+        <input type="email" name="email" placeholder="Seu email" required />
         <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
         <button type="submit">Enviar</button>
-      </form>
+      </div>
     </div>
   </div>
 
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 </body>
-</html>
 
-      
-
-</body>
 </html>
